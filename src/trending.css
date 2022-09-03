@@ -1,0 +1,121 @@
+.trending {
+    max-width: 1540px;
+    margin: 0 auto;
+    width: 100%;
+    min-height: 100vh;
+    color: #fff;
+    padding-top: 150px;
+    padding-bottom: 70px;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    font-family: "Montserrat",sans-serif;
+    font-size: 2vw;
+    padding: 4px;
+    border-radius: 50px;
+    color: #fff;
+    font-weight: 100;
+}
+
+.trends {
+    padding: 0 24px;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.trend {
+    width: 240px;
+    padding: 7px 7px 10px 7px;
+    margin: 5px 0;
+    background-color: #282c34;
+    border-radius: 10px;
+    position: relative;
+    text-align: center;
+    transition: 0.3s all ease;
+    cursor: pointer;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+.trend div {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.trend img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.trend:hover {
+    background: white;
+    color: black !important;
+}
+
+.trend:hover a {
+    color: black !important;
+}
+
+.type {
+    text-transform: capitalize !important;
+}
+
+.trend p {
+    width: 100%;
+    text-align: center;
+    font-size: 19px;
+    padding: 8px 0;
+    font-weight: 400;
+}
+
+.media p {
+    width: max-content;
+    font-size: 16px;
+    padding: 0;
+    font-weight: 200;
+}
+
+.trend span {
+    top: 0;
+    right: 0;
+    transform: scale(1) translate(11px, -5px);
+    color: #fff;
+    background-color: #3f51b5;
+    height: 20px;
+    display: flex;
+    padding: 0 6px;
+    z-index: 1;
+    position: absolute;
+    font-size: 0.75rem;
+    align-items: center;
+    font-weight: 500;
+    border-radius: 10px;
+    justify-content: center;
+}
+
+@media screen and (max-width: 1000px) {
+    .title {
+        font-size: 6.4vw;
+    }
+    .trending {
+        padding-top: 120px;
+    }
+}
+@media screen and (max-width: 700px) {
+    .trending {
+        padding-top: 100px;
+    }
+}
+@media screen and (max-width: 375px) {
+    .trending {
+        padding-top: 70px;
+    }
+}
