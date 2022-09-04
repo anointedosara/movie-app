@@ -4,7 +4,7 @@
     width: 100%;
     min-height: 100vh;
     color: #fff;
-    padding-top: 150px;
+    padding-top: 20px;
     padding-bottom: 70px;
 }
 
@@ -28,7 +28,7 @@
 }
 
 .trend {
-    width: 240px;
+    width: 270px;
     padding: 7px 7px 10px 7px;
     margin: 5px 0;
     background-color: #282c34;
@@ -104,18 +104,5 @@ a {
 @media screen and (max-width: 1000px) {
     .title {
         font-size: 6.4vw;
-    }
-    .trending {
-        padding-top: 120px;
-    }
-}
-@media screen and (max-width: 700px) {
-    .trending {
-        padding-top: 100px;
-    }
-}
-@media screen and (max-width: 375px) {
-    .trending {
-        padding-top: 70px;
     }
 }

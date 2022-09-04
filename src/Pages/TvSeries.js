@@ -9,6 +9,7 @@ function TvSeries() {
     const [page, setPage] = useState(1)
     const [modalData, setModalData] = useState({})
     const [showModal, setShowModal] = useState(false)
+    const [style, setStyle] = useState({})
 
     const getGenre = async () => {
         fetch(`https://api.themoviedb.org/3/genre/tv/list?api_key=7d8950b413b70f01371c062f2f50f32d&page=${page}&language=en-US`)
@@ -43,7 +44,7 @@ function TvSeries() {
       window.scroll(0, 0);
     }, [page])
   return (
-    <div className='tvseries'>
+    <div className='tvseries' style={showModal === true ? style : {}}>
       <div className='title'>DISCOVER SERIES</div>
       <div className='genres'>
         {
@@ -53,7 +54,7 @@ function TvSeries() {
       <div className='trends'>
       {data &&
           data.map((ite, i) => (
-            <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: 'tv'}); setShowModal(true)}}>
+            <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: 'tv'}); setShowModal(true); setStyle({position: 'fixed'})}}>
                 {ite?.poster_path ? <img src={`https://image.tmdb.org/t/p/w300${ite?.poster_path}`} alt="" /> : <img src="https://www.movienewz.com/img/films/poster-holder.jpg" alt="" /> }
                 <p>{ite.original_title || ite.title || ite.name}</p>
                 <div className='media'>

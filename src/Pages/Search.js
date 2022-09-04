@@ -10,6 +10,7 @@ function Search() {
   const [type, setType] = useState('movie')
   const [modalData, setModalData] = useState({})
   const [showModal, setShowModal] = useState(false)
+  const [style, setStyle] = useState({})
 
   const getData = async () => {
       fetch(`https://api.themoviedb.org/3/search/${type}?api_key=7d8950b413b70f01371c062f2f50f32d&language=en-US&query=${search}&page=${page}&include_adult=false`)
@@ -48,7 +49,7 @@ function Search() {
     }, [type, page])
   
   return (
-    <div className='search'>
+    <div className='search' style={showModal === true ? style : {}}>
       <div className='heading'>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder='Search' onChange={e => setSearch(e.target.value)} />
@@ -65,7 +66,7 @@ function Search() {
 
       <div className='trends'>
       {data &&
-          data?.map((ite, i) => <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: type}); setShowModal(true)}}>
+          data?.map((ite, i) => <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: type}); setShowModal(true); setStyle({position: 'fixed'})}}>
                 {ite?.poster_path ? <img src={`https://image.tmdb.org/t/p/w300${ite?.poster_path}`} alt="" /> : <img src="https://www.movienewz.com/img/films/poster-holder.jpg" alt="" /> }
                 <p>{ite?.original_title || ite?.title || ite?.name}</p>
                 <div className='media'>

@@ -5,24 +5,10 @@
     min-height: 100vh;
     color: #fff;
     padding: 0 24px;
-    padding-top: 150px;
+    padding-top: 20px;
     padding-bottom: 70px;
 }
-
-@media screen and (max-width: 1000px) {
-    .tvseries {
-        padding-top: 120px;
-    }
-}
-@media screen and (max-width: 700px) {
-    .tvseries {
-        padding-top: 100px;
-    }
-}
 @media screen and (max-width: 375px) {
-    .tvseries {
-        padding-top: 70px;
-    }
     .tvseries .trends {
         padding: 0;
     }

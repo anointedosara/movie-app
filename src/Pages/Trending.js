@@ -7,6 +7,7 @@ function Trending() {
     const [pag, setPag] = useState([])
     const [page, setPage] = useState(1)
     const [showModal, setShowModal] = useState(false)
+    const [style, setStyle] = useState({})
 
     const getdata = async () => {
         fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=7d8950b413b70f01371c062f2f50f32d&page=${page}`)
@@ -25,11 +26,11 @@ function Trending() {
     }, [page])
 
   return (
-    <div className='trending'>
+    <div className='trending' style={showModal === true ? style : {}}>
       <div className='title'>TRENDING TODAY</div>
       <div className='trends'>
       {data &&
-          data.map((ite, i) => <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: ite.media_type}); setShowModal(true)}}>
+          data.map((ite, i) => <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: ite.media_type}); setShowModal(true); setStyle({position: 'fixed'})}}>
               {ite?.poster_path ? <img src={`https://image.tmdb.org/t/p/w300${ite?.poster_path}`} alt="" /> : <img src="https://www.movienewz.com/img/films/poster-holder.jpg" alt="" /> }
                   <p>{ite.original_title || ite.title || ite.name}</p>
                   <div className='media'>
