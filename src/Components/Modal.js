@@ -45,7 +45,9 @@ function Modal(props) {
   return (
     <div className='modal' onClick={props?.closeModal}>
         <div className='inner-modal' onClick={(e) => e.stopPropagation()}>
-            {data?.backdrop_path ? <img  className='potrait' src={`https://image.tmdb.org/t/p/w300${data?.backdrop_path}`} alt="" /> : <img  className='potrait' src="https://www.movienewz.com/img/films/poster-holder.jpg" alt="" /> }
+            <div className='potrait'>
+                {data?.poster_path ? <img src={`https://image.tmdb.org/t/p/w300${data?.poster_path}`} alt="" /> : <img src="https://www.movienewz.com/img/films/poster-holder.jpg" alt="" /> }
+            </div>
             <div className='about'>
                 <h1>{data.original_title || data.title || data.name}</h1>
                 <p>{data.tagline}</p>
