@@ -8,6 +8,7 @@ function Trending() {
     const [page, setPage] = useState(1)
     const [showModal, setShowModal] = useState(false)
     const [style, setStyle] = useState({})
+    const [color, setColor] = useState('blue')
 
     const getdata = async () => {
         fetch(`https://api.themoviedb.org/3/trending/all/day?api_key=7d8950b413b70f01371c062f2f50f32d&page=${page}`)
@@ -30,14 +31,14 @@ function Trending() {
       <div className='title'>TRENDING TODAY</div>
       <div className='trends'>
       {data &&
-          data.map((ite, i) => <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: ite.media_type}); setShowModal(true); setStyle({position: 'fixed'})}}>
+          data.map((ite, i) => <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: ite.media_type}); setShowModal(true)}}>
               {ite?.poster_path ? <img src={`https://image.tmdb.org/t/p/w300${ite?.poster_path}`} alt="" /> : <img src="https://www.movienewz.com/img/films/poster-holder.jpg" alt="" /> }
                   <p>{ite.original_title || ite.title || ite.name}</p>
                   <div className='media'>
                       <p className='type'>{ite.media_type}</p>
                       <p>{ite.release_date || ite.first_air_date}</p>
                   </div>
-                  <span>{ite.vote_average}</span>
+                <span style={!parseInt(ite.vote_average - 1) ? {background: 'red'} : {background: 'blue'}}>{ite.vote_average}</span>
             </div>)
           }
       </div>
