@@ -49,7 +49,7 @@ function Search() {
     }, [type, page])
   
   return (
-    <div className='search' style={showModal === true ? style : {}}>
+    <div className='search'>
       <div className='heading'>
         <form onSubmit={handleSubmit}>
           <input type="text" placeholder='Search' onChange={e => setSearch(e.target.value)} />
@@ -66,7 +66,7 @@ function Search() {
 
       <div className='trends'>
       {data &&
-          data?.map((ite, i) => <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: type}); setShowModal(true); setStyle({position: 'fixed'})}}>
+          data?.map((ite, i) => <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: type}); setShowModal(true);}}>
                 {ite?.poster_path ? <img src={`https://image.tmdb.org/t/p/w300${ite?.poster_path}`} alt="" /> : <img src="https://www.movienewz.com/img/films/poster-holder.jpg" alt="" /> }
                 <p>{ite?.original_title || ite?.title || ite?.name}</p>
                 <div className='media'>

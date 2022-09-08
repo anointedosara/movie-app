@@ -27,7 +27,7 @@ function Trending() {
     }, [page])
 
   return (
-    <div className='trending' style={showModal === true ? style : {}}>
+    <div className='trending'>
       <div className='title'>TRENDING TODAY</div>
       <div className='trends'>
       {data &&

@@ -44,7 +44,7 @@ function Movies() {
         window.scroll(0, 0);
     }, [page])
   return (
-    <div className='movies' style={showModal === true ? style : {}}>
+    <div className='movies'>
       <div className='title'>DISCOVER MOVIES</div>
       <div className='genres'>
         {
@@ -54,7 +54,7 @@ function Movies() {
       <div className='trends'>
       {data &&
           data.map((ite, i) => (
-            <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: 'movie'}); setShowModal(true); setStyle({position: 'fixed'})}}>
+            <div className='trend' key={i} onClick={() => {setModalData({id: ite.id, type: 'movie'}); setShowModal(true);}}>
                 {ite?.poster_path ? <img src={`https://image.tmdb.org/t/p/w300${ite?.poster_path}`} alt="" /> : <img src="https://www.movienewz.com/img/films/poster-holder.jpg" alt="" /> }
                 <p>{ite.original_title || ite.title || ite.name}</p>
                 <div className='media'>
